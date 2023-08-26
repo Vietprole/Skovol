@@ -50,10 +50,13 @@
 //! Tokens can be destroyed by burning them. Only the token owner is allowed to burn a
 //! token.
 
+
+
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
 #[ink::contract]
 mod erc721 {
+    use ink::prelude::string::String;
     use ink::storage::Mapping;
 
     use scale::{
@@ -63,10 +66,14 @@ mod erc721 {
 
     /// A token ID.
     pub type TokenId = u32;
+    /// A token's data
+    pub type TokenData = String;
 
     #[ink(storage)]
     #[derive(Default)]
     pub struct Erc721 {
+        /// Mapping from data to token
+        token_data: Mapping<TokenId, TokenData>,
         /// Mapping from token to owner.
         token_owner: Mapping<TokenId, AccountId>,
         /// Mapping from token to approvals users.
@@ -142,6 +149,12 @@ mod erc721 {
         pub fn owner_of(&self, id: TokenId) -> Option<AccountId> {
             self.token_owner.get(id)
         }
+        
+        /// Returns the data of the token.
+        #[ink(message)]
+        pub fn data_of(&self, id: TokenId) -> Option<TokenData> {
+            self.token_data.get(id)
+        }
 
         /// Returns the approved account ID for this token if any.
         #[ink(message)]
@@ -199,8 +212,9 @@ mod erc721 {
 
         /// Creates a new token.
         #[ink(message)]
-        pub fn mint(&mut self, id: TokenId) -> Result<(), Error> {
+        pub fn mint(&mut self, id: TokenId, data: TokenData) -> Result<(), Error> {
             let caller = self.env().caller();
+            self.add_data_to(&data, id)?;
             self.add_token_to(&caller, id)?;
             self.env().emit_event(Transfer {
                 from: Some(AccountId::from([0x0; 32])),
@@ -288,6 +302,17 @@ mod erc721 {
                 .ok_or(Error::CannotFetchValue)?;
             owned_tokens_count.insert(from, &count);
             token_owner.remove(id);
+
+            Ok(())
+        }
+        /// Adds the token data to the `to` TokenId.
+        fn add_data_to(&mut self, to: &TokenData, id: TokenId) -> Result<(), Error> {
+            let Self {
+                token_data,
+                ..
+            } = self;
+
+            token_data.insert(id, to);
 
             Ok(())
         }
@@ -422,7 +447,7 @@ mod erc721 {
             // Alice does not owns tokens.
             assert_eq!(erc721.balance_of(accounts.alice), 0);
             // Create token Id 1.
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from(String::from("abc"))), Ok(()));
             // Alice owns 1 token.
             assert_eq!(erc721.balance_of(accounts.alice), 1);
         }
@@ -434,7 +459,7 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1.
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // The first Transfer event takes place
             assert_eq!(1, ink::env::test::recorded_events().count());
             // Alice owns 1 token.
@@ -443,7 +468,7 @@ mod erc721 {
             assert_eq!(erc721.owner_of(1), Some(accounts.alice));
             // Cannot create  token Id if it exists.
             // Bob cannot own token Id 1.
-            assert_eq!(erc721.mint(1), Err(Error::TokenExists));
+            assert_eq!(erc721.mint(1, String::from("abc")), Err(Error::TokenExists));
         }
 
         #[ink::test]
@@ -453,7 +478,7 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1 for Alice
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // Alice owns token 1
             assert_eq!(erc721.balance_of(accounts.alice), 1);
             // Bob does not owns any token
@@ -479,7 +504,7 @@ mod erc721 {
             // Token Id 2 does not exists.
             assert_eq!(erc721.owner_of(2), None);
             // Create token Id 2.
-            assert_eq!(erc721.mint(2), Ok(()));
+            assert_eq!(erc721.mint(2, String::from("def")), Ok(()));
             // Alice owns 1 token.
             assert_eq!(erc721.balance_of(accounts.alice), 1);
             // Token Id 2 is owned by Alice.
@@ -497,7 +522,7 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1.
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // Token Id 1 is owned by Alice.
             assert_eq!(erc721.owner_of(1), Some(accounts.alice));
             // Approve token Id 1 transfer for Bob on behalf of Alice.
@@ -526,9 +551,9 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1.
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // Create token Id 2.
-            assert_eq!(erc721.mint(2), Ok(()));
+            assert_eq!(erc721.mint(2, String::from("def")), Ok(()));
             // Alice owns 2 tokens.
             assert_eq!(erc721.balance_of(accounts.alice), 2);
             // Approve token Id 1 transfer for Bob on behalf of Alice.
@@ -569,7 +594,7 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1.
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // Alice owns 1 token.
             assert_eq!(erc721.balance_of(accounts.alice), 1);
             // Bob does not owns tokens.
@@ -598,7 +623,7 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1 for Alice
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // Alice owns 1 token.
             assert_eq!(erc721.balance_of(accounts.alice), 1);
             // Alice owns token Id 1.
@@ -626,7 +651,7 @@ mod erc721 {
             // Create a new contract instance.
             let mut erc721 = Erc721::new();
             // Create token Id 1 for Alice
-            assert_eq!(erc721.mint(1), Ok(()));
+            assert_eq!(erc721.mint(1, String::from("abc")), Ok(()));
             // Try burning this token with a different account
             set_caller(accounts.eve);
             assert_eq!(erc721.burn(1), Err(Error::NotOwner));

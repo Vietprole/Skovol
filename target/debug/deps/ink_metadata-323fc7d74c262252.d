@@ -1,0 +1,11 @@
+/home/vietpro/ink-examples/erc721/target/debug/deps/ink_metadata-323fc7d74c262252.rmeta: /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/lib.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/validate.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/specs.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/utils.rs
+
+/home/vietpro/ink-examples/erc721/target/debug/deps/libink_metadata-323fc7d74c262252.rlib: /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/lib.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/validate.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/specs.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/utils.rs
+
+/home/vietpro/ink-examples/erc721/target/debug/deps/ink_metadata-323fc7d74c262252.d: /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/lib.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/validate.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/specs.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/utils.rs
+
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/lib.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/mod.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/layout/validate.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/specs.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ink_metadata-4.3.0/src/utils.rs:

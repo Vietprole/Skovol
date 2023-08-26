@@ -1,0 +1,1 @@
+{"rustc":14372852744970399402,"features":"[\"const_xxh32\"]","target":9147376808005384872,"profile":3735503092003429423,"path":8085535598612302137,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug\\.fingerprint\\xxhash-rust-c5fa0b6d26a1531f\\dep-lib-xxhash-rust"}}],"rustflags":[],"metadata":2612956023056793634,"config":2202906307356721367,"compile_kind":0}
