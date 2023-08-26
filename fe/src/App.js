@@ -1,22 +1,42 @@
-import logo from './logo.svg';
+import { ethers } from 'ethers';
+import { useState } from 'react';
+import { BrowserProvider } from "ethers";
 import './App.css';
 
 function App() {
+  let signer = null
+  const [walletAddress, setWalletAddress] = useState("")
+
+  const requestAccount = async () => {
+    console.log("request account")
+
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      setWalletAddress(accounts)
+    } catch (err) {
+      console.log(err)
+    }
+
+    if (window.ethereum) {
+      console.log("detected ethereum")
+    } else {
+      console.log("MetaMask not installed")
+    }
+  }
+
+  const connectWallet = async () => {
+    if (typeof window.ethereum !== 'undefined') {
+      await requestAccount()
+      const provider = new ethers.BrowserProvider(window.ethereum)
+      signer = await provider.getSigner();
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={connectWallet}>Connect Wallet</button>
+        <p>{walletAddress}</p>
       </header>
     </div>
   );
