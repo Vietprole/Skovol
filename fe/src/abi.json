@@ -1,0 +1,17 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"type": "uint32"
+			}
+		],
+		"name": "dataOf",
+		"type": "function",
+        "outputs": [
+            {
+                "type": "string"
+            }
+        ]
+	}
+]
