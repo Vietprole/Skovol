@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/vietpro/ink-examples/erc721/target/ink/release/build/typenum-0a9cca343773eb4c/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/vietpro/ink-examples/erc721/target/ink/release/build/typenum-0a9cca343773eb4c/out/op.rs
