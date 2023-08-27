@@ -15,25 +15,25 @@ const TicketData = [
     {
       id: 3,
       title: "CAT 1",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/947/947876.png", 
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/405/405271.png",
       price: 6800000,
     },
     {
       id: 4,
       title: "CAT 2",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/1456/1456687.png",
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/947/947876.png",
       price: 5800000,
     },
     {
       id: 5,
       title: "CAT 3",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/6030/6030249.png",
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/1456/1456687.png",
       price: 4800000,
     },
     {
       id: 6,
       title: "CAT 4",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/850/850234.png",
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/6030/6030249.png",
       price: 3800000,
     },
     {
@@ -51,7 +51,7 @@ const TicketData = [
     {
       id: 9,
       title: "CAT 7",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/4406/4406665.png",
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/2883/2883602.png",
       price: 880000,
     },
     {
@@ -63,13 +63,13 @@ const TicketData = [
     {
       id: 11,
       title: "CAT 9",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/4406/4406665.png",
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/5525/5525482.png",
       price: 580000,
     },
     {
       id: 12,
       title: "CAT 10",
-      thumbnail: "https://cdn-icons-png.flaticon.com/512/4406/4406665.png",
+      thumbnail: "https://cdn-icons-png.flaticon.com/512/2067/2067046.png",
       price: 480000,
     }
   ]
