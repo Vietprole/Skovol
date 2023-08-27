@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UseInkProvider } from 'useink';
+import { Custom } from 'useink/chains';
+
+const custom = Custom
+  custom.id = "custom"
+  custom.rpcs = ['ws://127.0.0.1:9944']
+  console.log(custom)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <UseInkProvider 
+      config={{ 
+        dappName: 'Skovol', 
+        chains: [custom]
+      }}
+    >
+      <App />
+      </UseInkProvider>
   </React.StrictMode>
 );
 

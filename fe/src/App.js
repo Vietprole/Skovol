@@ -1,61 +1,91 @@
 import { ethers } from 'ethers';
 import { useState } from 'react';
 import './App.css';
+import { pickDecoded, pickError } from 'useink/utils';
+import { useWallet, useAllWallets, useContract, useCall, useDryRun, useTx, useTxPaymentInfo } from 'useink';
+import { decodeCallResult, call, decodeError } from 'useink/core';
+import abi from './abi.json'
+
+
+const CONTRACT_ADDRESS = '5DFbCKQn4mweAynua9zFFj93jiYPhGf29miq2NJVoKoQk4Tb'
 
 function App() {
-  const abi = require('./abi.json')
-  const contractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138"
-  const [walletAddress, setWalletAddress] = useState("")
+  const { account, connect, disconnect } = useWallet()
+  const wallets = useAllWallets();
 
-  const [provider, setProvider] = useState(null)
-  const [signer, setSigner] = useState(null)
-  const [contract, setContract] = useState(null)
+  const contract = useContract(CONTRACT_ADDRESS, abi)
 
-  const requestAccount = async () => {
+  const get = useCall(contract, 'transferFrom');
+  
+  const args = ["5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY", account?.address, 25]
+  const buy = useTx(contract, 'transferFrom')
+
+  const test = useTxPaymentInfo(contract, 'transferFrom')
+
+  const getDataOf = async () => {
     try {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-      console.log(accounts)
-      setWalletAddress(accounts)
+    const res = buy.signAndSend(args, {
+      gasLimit: {
+        refTime: 4436539380,
+        proofSize: 52523,
+      },
+      storageDepositLimit: 10000,
+      value: null
+
+    })
+    console.log(res)
+    //console.log(pickDecoded(get), get)
     } catch (err) {
-      console.log("cuu")
-      alert("Need to install MetaMask!")
+      console.log(err)
     }
   }
 
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      await requestAccount()
-      updateEthers()
-    } else {
-      alert("Need to install MetaMask!")
-    }
-  }
-
-  const updateEthers = async () => {
-    const tempProvider = new ethers.BrowserProvider('ws://127.0.0.1:9944')
-    setProvider(tempProvider)
-    const tempSigner = await tempProvider.getSigner()
-    setSigner(tempSigner)
-    console.log(tempProvider, tempSigner)
-    const contract = new ethers.Contract(contractAddress, abi, tempSigner)
-    setContract(contract)
-  }
-
-  const getVal = async () => {
-    const val = await contract.dataOf('019')
-    console.log(val)
-
+  
+  
+  if (!account) {
+    return (
+      <ul>
+        {wallets.map((w) => (
+          <li key={w.title}>
+            {w.installed ? (
+              <button onClick={() => connect(w.extensionName)}>
+                <img src={w.logo.src} alt={w.logo.alt} />
+                Connect to {w.title}
+              </button>
+            ) : (
+              <a href={w.installUrl}>
+                <img src={w.logo.src} alt={w.logo.alt} />
+                Install {w.title}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={connectWallet}>Connect Wallet</button>
-        <p>{walletAddress}</p>
-        <button onClick={getVal}>Get Value</button>
-      </header>
-    </div>
-  );
+    <>
+      <p>You are connected as {account?.name && account?.address}</p>
+
+      <button onClick={disconnect}>
+        Disonnect Wallet
+      </button>
+
+      <button onClick={() => test.send(args)} disabled={test.isSubmitting}>
+      {test.result?.partialFee ? (
+          `Gas price: ${test.result?.partialFee.toString()}`
+        ) : '--'}
+    </button>
+      
+
+      
+
+      <button disabled={get.isSubmitting} onClick={getDataOf}>
+        Get Result
+      </button>
+    </>
+  )
 }
 
 export default App;
