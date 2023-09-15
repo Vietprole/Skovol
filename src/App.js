@@ -1,4 +1,3 @@
-import { ethers } from 'ethers';
 import { useState } from 'react';
 import './App.css';
 import { pickDecoded, pickError } from 'useink/utils';
@@ -7,7 +6,7 @@ import { decodeCallResult, call, decodeError } from 'useink/core';
 import abi from './abi.json'
 
 
-const CONTRACT_ADDRESS = '5DFbCKQn4mweAynua9zFFj93jiYPhGf29miq2NJVoKoQk4Tb'
+const CONTRACT_ADDRESS = '5FJ473DqeoMC4XYb2BkXST2zFWtJHxduZPVyPfaSnscPj8by'
 
 function App() {
   const { account, connect, disconnect } = useWallet()
@@ -15,30 +14,10 @@ function App() {
 
   const contract = useContract(CONTRACT_ADDRESS, abi)
 
-  const get = useCall(contract, 'transferFrom');
-  
-  const args = ["5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY", account?.address, 25]
-  const buy = useTx(contract, 'transferFrom')
+  const dataOf = useCall(contract, "dataOf")
+  const id = 0
 
-  const test = useTxPaymentInfo(contract, 'transferFrom')
-
-  const getDataOf = async () => {
-    try {
-    const res = buy.signAndSend(args, {
-      gasLimit: {
-        refTime: 4436539380,
-        proofSize: 52523,
-      },
-      storageDepositLimit: 10000,
-      value: null
-
-    })
-    console.log(res)
-    //console.log(pickDecoded(get), get)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  console.log(dataOf)
 
   
   
@@ -72,18 +51,10 @@ function App() {
         Disonnect Wallet
       </button>
 
-      <button onClick={() => test.send(args)} disabled={test.isSubmitting}>
-      {test.result?.partialFee ? (
-          `Gas price: ${test.result?.partialFee.toString()}`
-        ) : '--'}
-    </button>
-      
-
-      
-
-      <button disabled={get.isSubmitting} onClick={getDataOf}>
+      <button onClick={() => dataOf.send([id])} disabled={dataOf.isSubmitting}>
         Get Result
-      </button>
+      </button> 
+      <p>{pickDecoded(dataOf.result) || '--'}</p>
     </>
   )
 }

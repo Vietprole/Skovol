@@ -1,33 +1,70 @@
-# Skovol
-Building an app to sell tickets in the secondary market between individuals, ensuring transparency, safety, and minimizing the situation where 1 ticket is sold to many people.
-Skovol
-# Tagline
-Building an app to sell BlackPink show tickets in the secondary market between individuals, ensuring transparency, and safety, and minimizing the situation where 1 ticket is sold to many people.
-# The Problem it solves
-The idea of buying and selling tickets in the form of NFT is a type of ticket sale in the OTC market between people who already own tickets from the organizers of Show Blackpink. We call the organizer F0, the person who buys tickets directly from the organizer is F1. 
-F1s want to resell tickets to users F2, F3, and vice versa, users F2, and F3 want to buy tickets from F1 again, while there is no trust in each other. 
-There is a fact that F1 uses 1 original ticket to sell to many F2 users, to gain illicit profits. The buyer has no way of checking the current ownership status of that ticket or the nearest owner.
- 
-The problem here:
-+ Double spending, 1 original ticket of the organizer can be sold to many people
-+ It is not possible to trace the origin of the ticket owned by whom
+# Getting Started with Create React App
 
-Stage F0 distributes tickets to F1 is that they already have a way to combat ticket spoofing, but that way is centralized and lacks transparency. They sold a ticket to F1 then it was a real ticket, and the buyer certainly received the ticket. They took full responsibility, and later F1 sold to F2, F3... Fn was the story of those people who trusted each other.
-When F1, F2, and F3 transfer tickets to the Blackpink show, they can only trust through their feelings. The actual ownership of the ticket transferor could not be verified.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Solution:
-NFT application for the transfer of Born Pink show tickets between users F1, F2, ...Fn
-NFTs characteristics:
-+ NFT is Non-fungible-Token, meaning that the asset is not divisible, it has integrity 
-+ NFT is unique, thanks to the pairs of properties you attach to it, every 1 NFT is minted as unique with its own time-stamp
-+ The NFT can verify the origin through the data stored on the blockchain about that NFT.
-+ NFTs can be limited in number
-+ Transparency: NFt is allowing anyone to view and check the origin and quantity of that NFT.
-Based on those characteristics, applying ticket issuance in the form of NFT can solve the problems mentioned at the beginning.
-# Challenges I ran into
-TELL US ABOUT ANY SPECIFIC BUG OR HURDLE YOU RAN INTO WHILE BUILDING THIS PROJECT. HOW DID YOU GET OVER IT? (MARKDOWN SUPPORTED)
-#  Technologies I used
-Near Blockchain (Rust)
-# Link
-# Video Demo
-# Cover image
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
