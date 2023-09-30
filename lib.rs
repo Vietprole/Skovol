@@ -68,10 +68,18 @@ mod erc721 {
     pub type TokenId = u32;
     /// A token's data
     pub type TokenData = String;
+    /// A token's price
+    pub type TokenPrice = u32;
+    /// A token's status
+    pub type TokenStatus = bool; //true: published, false: not published
 
     #[ink(storage)]
     #[derive(Default)]
     pub struct Erc721 {
+        ///Mapping from price to token
+        token_price: Mapping<TokenId, TokenPrice>,
+        ///Mapping from status to token
+        token_status: Mapping<TokenId, TokenStatus>,
         /// Mapping from data to token
         token_data: Mapping<TokenId, TokenData>,
         /// Mapping from token to owner.
@@ -215,6 +223,21 @@ mod erc721 {
         pub fn mint(&mut self, id: TokenId, data: TokenData) -> Result<(), Error> {
             let caller = self.env().caller();
             self.add_data_to(&data, id)?;
+            self.set_price_of(&0, id)?;
+            
+            self.add_token_to(&caller, id)?;
+            self.env().emit_event(Transfer {
+                from: Some(AccountId::from([0x0; 32])),
+                to: Some(caller),
+                id,
+            });
+            Ok(())
+        }
+        /// Publics a token.
+        #[ink(message)]
+        pub fn publish(&mut self, id: TokenId, data: TokenData) -> Result<(), Error> {
+            let caller = self.env().caller();
+            self.add_data_to(&data, id)?;
             self.add_token_to(&caller, id)?;
             self.env().emit_event(Transfer {
                 from: Some(AccountId::from([0x0; 32])),
@@ -313,6 +336,17 @@ mod erc721 {
             } = self;
 
             token_data.insert(id, to);
+
+            Ok(())
+        }
+        /// Set the token price of the `to` TokenId.
+        fn set_price_of(&mut self, to: &TokenPrice, id: TokenId) -> Result<(), Error> {
+            let Self {
+                token_price,
+                ..
+            } = self;
+
+            token_price.insert(id, to);
 
             Ok(())
         }
