@@ -164,6 +164,12 @@ mod erc721 {
             self.token_data.get(id)
         }
 
+        /// Returns the price of the token.
+        #[ink(message)]
+        pub fn price_of(&self, id: TokenId) -> Option<TokenPrice> {
+            self.token_price.get(id)
+        }
+
         /// Returns the approved account ID for this token if any.
         #[ink(message)]
         pub fn get_approved(&self, id: TokenId) -> Option<AccountId> {
@@ -224,7 +230,7 @@ mod erc721 {
             let caller = self.env().caller();
             self.add_data_to(&data, id)?;
             self.set_price_of(&0, id)?;
-            
+            self.set_status_of(&false, id)?;
             self.add_token_to(&caller, id)?;
             self.env().emit_event(Transfer {
                 from: Some(AccountId::from([0x0; 32])),
@@ -233,17 +239,30 @@ mod erc721 {
             });
             Ok(())
         }
-        /// Publics a token.
+
+        /// Publish a token.
         #[ink(message)]
-        pub fn publish(&mut self, id: TokenId, data: TokenData) -> Result<(), Error> {
-            let caller = self.env().caller();
-            self.add_data_to(&data, id)?;
-            self.add_token_to(&caller, id)?;
-            self.env().emit_event(Transfer {
-                from: Some(AccountId::from([0x0; 32])),
-                to: Some(caller),
-                id,
-            });
+        pub fn publish(&mut self, id: TokenId, /*data: TokenData,*/price: TokenPrice) -> Result<(), Error> {
+            //self.add_data_to(&data, id)?;
+            self.set_price_of(&price, id)?;
+            self.set_status_of(&true, id)?; 
+            Ok(())
+        }
+        
+        /// Buy a token
+        #[ink(message, payable)]
+        pub fn buy(
+            &mut self,
+            from: AccountId,
+            to: AccountId,
+            id: TokenId,
+        ) -> Result<(), Error> {
+            //Get the price of token
+            self.price_of(id);
+            // Transfer the token to the smart contract.
+            self.env().transfer(self.env().caller(), amount);
+
+            self.transfer_token_from(&from, &to, id)?;
             Ok(())
         }
 
@@ -328,7 +347,7 @@ mod erc721 {
 
             Ok(())
         }
-        /// Adds the token data to the `to` TokenId.
+        /// Adds the token data to the `id` TokenId.
         fn add_data_to(&mut self, to: &TokenData, id: TokenId) -> Result<(), Error> {
             let Self {
                 token_data,
@@ -339,7 +358,7 @@ mod erc721 {
 
             Ok(())
         }
-        /// Set the token price of the `to` TokenId.
+        /// Set the token price of the `id` TokenId.
         fn set_price_of(&mut self, to: &TokenPrice, id: TokenId) -> Result<(), Error> {
             let Self {
                 token_price,
@@ -347,6 +366,17 @@ mod erc721 {
             } = self;
 
             token_price.insert(id, to);
+
+            Ok(())
+        }
+        /// Set the token status of the `id` TokenId.
+        fn set_status_of(&mut self, to: &TokenStatus, id: TokenId) -> Result<(), Error> {
+            let Self {
+                token_status,
+                ..
+            } = self;
+
+            token_status.insert(id, to);
 
             Ok(())
         }
