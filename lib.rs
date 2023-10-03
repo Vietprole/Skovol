@@ -69,7 +69,7 @@ mod erc721 {
     /// A token's data
     pub type TokenData = String;
     /// A token's price
-    pub type TokenPrice = u32;
+    pub type TokenPrice = u128;
     /// A token's status
     pub type TokenStatus = bool; //true: published, false: not published
 
@@ -253,16 +253,20 @@ mod erc721 {
         #[ink(message, payable)]
         pub fn buy(
             &mut self,
-            from: AccountId,
-            to: AccountId,
             id: TokenId,
         ) -> Result<(), Error> {
-            //Get the price of token
-            self.price_of(id);
-            // Transfer the token to the smart contract.
-            self.env().transfer(self.env().caller(), amount);
-
-            self.transfer_token_from(&from, &to, id)?;
+            // Get the price of token
+            let amount = self.price_of(id).unwrap();
+            // Transfer the UNIT tokens to the smart contract.
+            self.env().transfer(self.env().account_id(), amount);
+            // Get owner approval
+            let owner = self.owner_of(id).unwrap();
+            let buyer = self.env().caller();
+            self.token_approvals.insert(id, &buyer);
+            // Transfer NFT token to buyer
+            self.transfer_token_from(&owner, &buyer, id)?;
+            // Transfer the UNIT tokens from contract to seller
+            self.env().transfer(owner, amount);
             Ok(())
         }
 
@@ -369,6 +373,7 @@ mod erc721 {
 
             Ok(())
         }
+
         /// Set the token status of the `id` TokenId.
         fn set_status_of(&mut self, to: &TokenStatus, id: TokenId) -> Result<(), Error> {
             let Self {
