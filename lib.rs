@@ -239,6 +239,13 @@ mod erc721 {
             });
             Ok(())
         }
+        ///Send funds through value field of payable function
+        #[ink(message, payable)]
+        pub fn send_funds(&mut self, to: AccountId)-> Result<(), Error>{
+            let balance = self.env().transferred_value();
+            self.env().transfer(to, balance).unwrap_or_else(|err| panic!("transfer failed: {:?}", err));
+            Ok(())
+        }
 
         /// Publish a token.
         #[ink(message)]
@@ -256,9 +263,10 @@ mod erc721 {
             id: TokenId,
         ) -> Result<(), Error> {
             // Get the price of token
-            let amount = self.price_of(id).unwrap();
+            //let amount = self.price_of(id).unwrap();
+            let balance = self.env().transferred_value();
             // Transfer the UNIT tokens to the smart contract.
-            self.env().transfer(self.env().account_id(), amount);
+            //self.env().transfer(self.env().account_id(), amount).unwrap_or_else(|err| panic!("transfer failed: {:?}", err));
             // Get owner approval
             let owner = self.owner_of(id).unwrap();
             let buyer = self.env().caller();
@@ -266,7 +274,7 @@ mod erc721 {
             // Transfer NFT token to buyer
             self.transfer_token_from(&owner, &buyer, id)?;
             // Transfer the UNIT tokens from contract to seller
-            self.env().transfer(owner, amount);
+            self.env().transfer(owner, balance).unwrap_or_else(|err| panic!("transfer failed: {:?}", err));
             Ok(())
         }
 

@@ -1,0 +1,10 @@
+/home/vietpro/Skovol/target/debug/deps/scale_encode-cb4c6f70aaffd20f.rmeta: /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/lib.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/composite.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/variant.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/error/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/error/context.rs
+
+/home/vietpro/Skovol/target/debug/deps/scale_encode-cb4c6f70aaffd20f.d: /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/lib.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/composite.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/variant.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/error/mod.rs /home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/error/context.rs
+
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/lib.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/mod.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/composite.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/impls/variant.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/error/mod.rs:
+/home/vietpro/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-encode-0.5.0/src/error/context.rs:
