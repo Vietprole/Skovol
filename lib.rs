@@ -99,6 +99,7 @@ mod erc721 {
         NotApproved,
         TokenExists,
         TokenNotFound,
+        TokenNotPublished,
         CannotInsert,
         CannotFetchValue,
         NotAllowed,
@@ -262,6 +263,9 @@ mod erc721 {
             &mut self,
             id: TokenId,
         ) -> Result<(), Error> {
+            if !self.is_published(id){
+                return Err(Error::TokenNotPublished);
+            }
             // Get the price of token
             //let amount = self.price_of(id).unwrap();
             let balance = self.env().transferred_value();
@@ -392,6 +396,18 @@ mod erc721 {
             token_status.insert(id, to);
 
             Ok(())
+        }
+
+        /// Check the token status of the `id` TokenId.
+        fn is_published(&mut self, id: TokenId) -> bool {
+            let Self {
+                token_status,
+                ..
+            } = self;
+            
+            token_status.get(id).unwrap()
+
+            //Ok(())
         }
 
         /// Adds the token `id` to the `to` AccountID.
