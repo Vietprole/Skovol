@@ -1,12 +1,12 @@
 {
   "source": {
-    "hash": "0x9e496884f82c84e2dbde11876486d9d3a45417ed10ffc4adeae7fa1c88c1d98a",
+    "hash": "0x0c29cecdc767ebfc1c7af3103ad5f710c8437e055612fee1c3eb72cc9b2df153",
     "language": "ink! 4.3.0",
-    "compiler": "rustc 1.72.1",
+    "compiler": "rustc 1.74.0-nightly",
     "build_info": {
       "build_mode": "Debug",
       "cargo_contract_version": "3.2.0",
-      "rust_toolchain": "stable-x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-x86_64-unknown-linux-gnu",
       "wasm_opt_settings": {
         "keep_debug_symbols": false,
         "optimization_passes": "Z"
@@ -590,6 +590,71 @@
       {
         "args": [
           {
+            "label": "amount",
+            "type": {
+              "displayName": [
+                "u32"
+              ],
+              "type": 6
+            }
+          },
+          {
+            "label": "data",
+            "type": {
+              "displayName": [
+                "TokenData"
+              ],
+              "type": 2
+            }
+          }
+        ],
+        "default": false,
+        "docs": [
+          " Creates a bulk of new token."
+        ],
+        "label": "mint_bulk",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 18
+        },
+        "selector": "0xc206ac16"
+      },
+      {
+        "args": [
+          {
+            "label": "to",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [
+          "Send funds through value field of payable function"
+        ],
+        "label": "send_funds",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 18
+        },
+        "selector": "0x522016eb"
+      },
+      {
+        "args": [
+          {
             "label": "id",
             "type": {
               "displayName": [
@@ -679,6 +744,34 @@
           "type": 18
         },
         "selector": "0xb1efc17b"
+      },
+      {
+        "args": [
+          {
+            "label": "id",
+            "type": {
+              "displayName": [
+                "TokenId"
+              ],
+              "type": 6
+            }
+          }
+        ],
+        "default": false,
+        "docs": [
+          " Check the token status of the `id` TokenId."
+        ],
+        "label": "is_published",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 17
+        },
+        "selector": "0x1a0a850b"
       }
     ]
   },
@@ -784,6 +877,15 @@
                 }
               },
               "name": "operator_approvals"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 6
+                }
+              },
+              "name": "highest_id"
             }
           ],
           "name": "Erc721"
@@ -1350,14 +1452,18 @@
               },
               {
                 "index": 4,
-                "name": "CannotInsert"
+                "name": "TokenNotPublished"
               },
               {
                 "index": 5,
-                "name": "CannotFetchValue"
+                "name": "CannotInsert"
               },
               {
                 "index": 6,
+                "name": "CannotFetchValue"
+              },
+              {
+                "index": 7,
                 "name": "NotAllowed"
               }
             ]

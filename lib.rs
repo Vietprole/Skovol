@@ -251,7 +251,7 @@ mod erc721 {
         pub fn mint_bulk(&mut self, amount: u32, data: TokenData) -> Result<(), Error> {
             //let caller = self.env().caller();
             for i in 1..amount{
-                self.mint(self.highest_id + i, data.to_string()).unwrap_or_else(|err| panic!("mint failed: {:?}", err));
+                self.mint(self.highest_id + i, data.clone()).unwrap_or_else(|err| panic!("mint failed: {:?}", err));
             }
             Ok(())
         }
@@ -415,7 +415,8 @@ mod erc721 {
         }
 
         /// Check the token status of the `id` TokenId.
-        fn is_published(&mut self, id: TokenId) -> bool {
+        #[ink(message)]
+        pub fn is_published(&mut self, id: TokenId) -> bool {
             let Self {
                 token_status,
                 ..

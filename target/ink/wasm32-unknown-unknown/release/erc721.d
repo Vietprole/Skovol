@@ -1,1 +1,1 @@
-/root/Skovol/target/ink/wasm32-unknown-unknown/release/erc721.wasm: /root/Skovol/lib.rs
+/home/vietpro/Skovol/target/ink/wasm32-unknown-unknown/release/erc721.wasm: /home/vietpro/Skovol/lib.rs

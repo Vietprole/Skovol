@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/vietpro/Skovol/target/ink/release/build/typenum-3485b6881d9973c2/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/vietpro/Skovol/target/ink/release/build/typenum-3485b6881d9973c2/out/op.rs
