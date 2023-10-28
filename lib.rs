@@ -90,6 +90,8 @@ mod erc721 {
         owned_tokens_count: Mapping<AccountId, u32>,
         /// Mapping from owner to operator approvals.
         operator_approvals: Mapping<(AccountId, AccountId), ()>,
+        ///The current highest ID
+        highest_id: u32,
     }
 
     #[derive(Encode, Decode, Debug, PartialEq, Eq, Copy, Clone)]
@@ -229,6 +231,9 @@ mod erc721 {
         #[ink(message)]
         pub fn mint(&mut self, id: TokenId, data: TokenData) -> Result<(), Error> {
             let caller = self.env().caller();
+            if id > self.highest_id{
+                self.highest_id = id;
+            }
             self.add_data_to(&data, id)?;
             self.set_price_of(&0, id)?;
             self.set_status_of(&false, id)?;
@@ -240,6 +245,17 @@ mod erc721 {
             });
             Ok(())
         }
+
+        /// Creates a bulk of new token.
+        #[ink(message)]
+        pub fn mint_bulk(&mut self, amount: u32, data: TokenData) -> Result<(), Error> {
+            //let caller = self.env().caller();
+            for i in 1..amount{
+                self.mint(self.highest_id + i, data.to_string()).unwrap_or_else(|err| panic!("mint failed: {:?}", err));
+            }
+            Ok(())
+        }
+        
         ///Send funds through value field of payable function
         #[ink(message, payable)]
         pub fn send_funds(&mut self, to: AccountId)-> Result<(), Error>{
