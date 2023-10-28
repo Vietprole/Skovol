@@ -250,8 +250,8 @@ mod erc721 {
         #[ink(message)]
         pub fn mint_bulk(&mut self, amount: u32, data: TokenData) -> Result<(), Error> {
             //let caller = self.env().caller();
-            for i in 1..amount{
-                self.mint(self.highest_id + i, data.clone()).unwrap_or_else(|err| panic!("mint failed: {:?}", err));
+            for _i in 0..amount{
+                self.mint(self.highest_id + 1, data.clone()).unwrap_or_else(|err| panic!("mint failed: {:?}", err));
             }
             Ok(())
         }
