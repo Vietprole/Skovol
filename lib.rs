@@ -57,6 +57,7 @@
 #[ink::contract]
 mod erc721 {
     use ink::prelude::string::String;
+    use ink::prelude::vec::Vec;
     use ink::storage::Mapping;
 
     use scale::{
@@ -153,6 +154,17 @@ mod erc721 {
         #[ink(message)]
         pub fn balance_of(&self, owner: AccountId) -> u32 {
             self.balance_of_or_zero(&owner)
+        }
+
+        /// Return tokens information of a owner
+        #[ink(message)]
+        pub fn get_token_of(&self, owner: AccountId) -> u32 {
+            let number_of_tokens = self.balance_of_or_zero(&owner);
+            let vec: Vec<(TokenPrice, TokenStatus, TokenData)> = Vec::new();
+            for i in 0..number_of_tokens{
+                if (self.token_owner.get();
+            }
+            3
         }
 
         /// Returns the owner of the token.
