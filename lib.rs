@@ -58,6 +58,7 @@
 mod erc721 {
     use ink::prelude::string::String;
     use ink::prelude::vec::Vec;
+    use ink::prelude::collections::BTreeMap;
     use ink::storage::Mapping;
 
     use scale::{
@@ -84,7 +85,7 @@ mod erc721 {
         /// Mapping from data to token
         token_data: Mapping<TokenId, TokenData>,
         /// Mapping from token to owner.
-        token_owner: Mapping<TokenId, AccountId>,
+        token_owner: BTreeMap<TokenId, AccountId>,
         /// Mapping from token to approvals users.
         token_approvals: Mapping<TokenId, AccountId>,
         /// Mapping from owner to number of owned token.
@@ -158,19 +159,24 @@ mod erc721 {
 
         /// Return tokens information of a owner
         #[ink(message)]
-        pub fn get_token_of(&self, owner: AccountId) -> u32 {
-            let number_of_tokens = self.balance_of_or_zero(&owner);
-            let vec: Vec<(TokenPrice, TokenStatus, TokenData)> = Vec::new();
-            for i in 0..number_of_tokens{
-                if (self.token_owner.get();
+        pub fn get_token_of(&self, owner: AccountId) -> Vec<(TokenPrice, TokenStatus, TokenData)> {
+            let _number_of_tokens = self.balance_of_or_zero(&owner);
+            let mut vec: Vec<(TokenPrice, TokenStatus, TokenData)> = Vec::new();
+            for (token_id, account_id) in self.token_owner.iter() {
+                if *account_id == owner {
+                    let token_price = self.token_price.get(token_id).unwrap();
+                    let token_status = self.token_status.get(token_id).unwrap();
+                    let token_data = self.token_data.get(token_id).unwrap();
+                    vec.push((token_price, token_status, token_data));
+                }
             }
-            3
+            vec
         }
 
         /// Returns the owner of the token.
         #[ink(message)]
         pub fn owner_of(&self, id: TokenId) -> Option<AccountId> {
-            self.token_owner.get(id)
+            self.token_owner.get(&id).map(|owner| *owner)
         }
         
         /// Returns the data of the token.
@@ -315,12 +321,11 @@ mod erc721 {
         pub fn burn(&mut self, id: TokenId) -> Result<(), Error> {
             let caller = self.env().caller();
             let Self {
-                token_owner,
                 owned_tokens_count,
                 ..
             } = self;
 
-            let owner = token_owner.get(id).ok_or(Error::TokenNotFound)?;
+            let owner = self.token_owner.get(&id).map(|owner| *owner).ok_or(Error::TokenNotFound)?;
             if owner != caller {
                 return Err(Error::NotOwner)
             };
@@ -330,7 +335,7 @@ mod erc721 {
                 .map(|c| c - 1)
                 .ok_or(Error::CannotFetchValue)?;
             owned_tokens_count.insert(caller, &count);
-            token_owner.remove(id);
+            self.token_owner.remove(&id);
 
             self.env().emit_event(Transfer {
                 from: Some(caller),
@@ -378,7 +383,7 @@ mod erc721 {
                 ..
             } = self;
 
-            if !token_owner.contains(id) {
+            if !token_owner.contains_key(&id) {
                 return Err(Error::TokenNotFound)
             }
 
@@ -387,7 +392,7 @@ mod erc721 {
                 .map(|c| c - 1)
                 .ok_or(Error::CannotFetchValue)?;
             owned_tokens_count.insert(from, &count);
-            token_owner.remove(id);
+            token_owner.remove(&id);
 
             Ok(())
         }
@@ -447,7 +452,7 @@ mod erc721 {
                 ..
             } = self;
 
-            if token_owner.contains(id) {
+            if token_owner.contains_key(&id) {
                 return Err(Error::TokenExists)
             }
 
@@ -458,7 +463,7 @@ mod erc721 {
             let count = owned_tokens_count.get(to).map(|c| c + 1).unwrap_or(1);
 
             owned_tokens_count.insert(to, &count);
-            token_owner.insert(id, to);
+            token_owner.insert(id, *to);
 
             Ok(())
         }
@@ -548,7 +553,7 @@ mod erc721 {
 
         /// Returns true if token `id` exists or false if it does not.
         fn exists(&self, id: TokenId) -> bool {
-            self.token_owner.contains(id)
+            self.token_owner.contains_key(&id)
         }
     }
 

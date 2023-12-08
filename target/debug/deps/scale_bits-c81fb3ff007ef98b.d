@@ -1,0 +1,11 @@
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\libscale_bits-c81fb3ff007ef98b.rmeta: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\bits\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\bits\bits.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\decode_iter.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\encode_iter.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\format.rs
+
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\scale_bits-c81fb3ff007ef98b.d: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\bits\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\bits\bits.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\decode_iter.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\encode_iter.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\format.rs
+
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\lib.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\bits\mod.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\bits\bits.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\mod.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\decode_iter.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\encode_iter.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-bits-0.4.0\src\scale\format.rs:

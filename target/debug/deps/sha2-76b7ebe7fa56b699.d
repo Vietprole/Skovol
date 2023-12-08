@@ -1,0 +1,13 @@
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\libsha2-76b7ebe7fa56b699.rmeta: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\core_api.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\consts.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256\soft.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256\x86.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512\soft.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512\x86.rs
+
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\sha2-76b7ebe7fa56b699.d: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\core_api.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\consts.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256\soft.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256\x86.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512\soft.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512\x86.rs
+
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\lib.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\core_api.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\consts.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256\soft.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha256\x86.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512\soft.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\sha2-0.10.7\src\sha512\x86.rs:

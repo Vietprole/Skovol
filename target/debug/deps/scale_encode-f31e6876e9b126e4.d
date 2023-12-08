@@ -1,0 +1,10 @@
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\libscale_encode-f31e6876e9b126e4.rmeta: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\composite.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\variant.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\error\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\error\context.rs
+
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\scale_encode-f31e6876e9b126e4.d: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\composite.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\variant.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\error\mod.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\error\context.rs
+
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\lib.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\mod.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\composite.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\impls\variant.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\error\mod.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scale-encode-0.5.0\src\error\context.rs:

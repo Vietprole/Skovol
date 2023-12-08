@@ -1,0 +1,18 @@
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\libtypenum-d7585e2428f5933e.rmeta: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\bit.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\int.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\marker_traits.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\operator_aliases.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\private.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\type_operators.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\uint.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\array.rs \\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\build\typenum-18a41408f8b8f54e\out\op.rs \\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\build\typenum-18a41408f8b8f54e\out\consts.rs
+
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\deps\typenum-d7585e2428f5933e.d: C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\lib.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\bit.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\int.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\marker_traits.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\operator_aliases.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\private.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\type_operators.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\uint.rs C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\array.rs \\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\build\typenum-18a41408f8b8f54e\out\op.rs \\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\build\typenum-18a41408f8b8f54e\out\consts.rs
+
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\lib.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\bit.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\int.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\marker_traits.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\operator_aliases.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\private.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\type_operators.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\uint.rs:
+C:\Users\OS\.cargo\registry\src\index.crates.io-6f17d22bba15001f\typenum-1.16.0\src\array.rs:
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\build\typenum-18a41408f8b8f54e\out\op.rs:
+\\wsl.localhost\Ubuntu\home\vietpro\Skovol\target\debug\build\typenum-18a41408f8b8f54e\out\consts.rs:
+
+# env-dep:TYPENUM_BUILD_CONSTS=\\\\wsl.localhost\\Ubuntu\\home\\vietpro\\Skovol\\target\\debug\\build\\typenum-18a41408f8b8f54e\\out\\consts.rs
+# env-dep:TYPENUM_BUILD_OP=\\\\wsl.localhost\\Ubuntu\\home\\vietpro\\Skovol\\target\\debug\\build\\typenum-18a41408f8b8f54e\\out\\op.rs
